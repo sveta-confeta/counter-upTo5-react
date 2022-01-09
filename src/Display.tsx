@@ -7,7 +7,7 @@ type DisplayPropsType={
 
 export const Display=(props:DisplayPropsType)=>{
     return(
-   <div className={s.count_wrapper}>{props.count}
+   <div className={ props.count ===5? s.red_count : s.count_wrapper}>{props.count}
    </div>
 
     )

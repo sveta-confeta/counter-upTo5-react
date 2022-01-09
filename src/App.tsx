@@ -1,18 +1,18 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {Button} from "./Button";
 import {Display} from "./Display";
-type NameType='count'|'reset'
+type NameType='inc'|'reset'
 
 function App() {
     let [count, setCount] = useState(0);
 
 
-    let btn_count=()=> count<5 ? setCount(count + 1): count;
+    let btn_inc=()=> count < 5 ? setCount(count + 1): count;
     let btn_reset=()=> count>0 ?  setCount( count=0): count;
 
-
+const disabledInc= count===5;
+    const disabledReset= count===0;
 
 
     return (
@@ -21,8 +21,8 @@ function App() {
                 <Display count={count}/>
             </div>
             <div className="btn_wrapper">
-                <Button name='count' callback={btn_count}/>
-                <Button name='reset' callback={btn_reset}/>
+                <Button name='inc' callback={btn_inc} disabled={disabledInc}/>
+                <Button name='reset' callback={btn_reset} disabled={disabledReset}/>
             </div>
         </div>
     )
